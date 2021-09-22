@@ -1,6 +1,6 @@
 #Docker Work na BSDK
 
-name: START BUILD
+name: DNAxCAT
 
 on:
     push:
@@ -17,19 +17,19 @@ jobs:
        - name: initialization
          continue-on-error: true
          run: |
-           git config --global user.name ${{ secrets.GitHubName }}
-           git config --global user.email ${{ secrets.GitHubMail }}
+           git config --global user.name 'github-actions[bot]'
+           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
            git config --global credential.helper store
            echo "https://${{ secrets.GitHubName }}:${{ secrets.GH_TOKEN }}@github.com" > ~/.git-credentials
        - name: cloning repo
          continue-on-error: true
          run: |
-           git clone https://${{ secrets.GitHubName }}:${{ secrets.GH_TOKEN }}@${{ secrets.CREDS }} ultroid
-       - name: Running Ultroid
+           git clone https://${{ secrets.GitHubName }}:${{ secrets.GH_TOKEN }}@${{ secrets.CREDS }} DXCT
+       - name: Running BOT
          timeout-minutes: 350
          continue-on-error: true
          run: |
-           cd ultroid
+           cd DXCT
            pip3 install pyrogram~=1.2.9 python-decouple html2image~=2.0.1 python-dotenv~=0.19.0 tgcrypto requests apscheduler asyncio
            python3 -m Bot
        - name: Loop workflow
