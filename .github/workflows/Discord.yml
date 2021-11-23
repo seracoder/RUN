@@ -1,6 +1,6 @@
 #Docker Work na BSDK
 
-name: DNAxCAT
+name: Discord
 
 on:
     push:
@@ -30,8 +30,8 @@ jobs:
          continue-on-error: true
          run: |
            cd DXCT
-           pip3 install pyrogram~=1.2.9 python-decouple html2image~=2.0.1 python-dotenv~=0.19.0 tgcrypto requests apscheduler asyncio
-           python3 -m Bot
+           pip3 install discord.py html2image~=2.0.1 python-dotenv~=0.19.0 tgcrypto requests apscheduler asyncio aiohttp~=3.7.4.post0
+           python3 -m bot
        - name: Loop workflow
          continue-on-error: true
          run: |
