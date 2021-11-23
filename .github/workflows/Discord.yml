@@ -1,6 +1,6 @@
 #Docker Work na BSDK
 
-name: Discord
+name: Discord Bot
 
 on:
     push:
